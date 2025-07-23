@@ -4,15 +4,12 @@ import chalk from 'chalk';
 import Table from 'cli-table3';
 import path from 'path';
 
-// Configuración por defecto
 const DEFAULT_CONFIG = {
     collectionPath: './collection.json',
     users: 10,
     repetitions: 1,
     delayMsBetweenUsers: 10
 };
-
-// Lee configuración desde archivo o usa valores por defecto
 function loadConfig() {
     const configPath = './config.json';
     
@@ -75,7 +72,6 @@ async function runRequest(item) {
     }
 }
 
-// Ejecuta la simulación completa
 async function simulateLoad(config) {
     const collection = loadCollection(config.collectionPath);
     const results = [];
@@ -85,7 +81,6 @@ async function simulateLoad(config) {
     console.log(chalk.blue(`🚀 Ejecutando test de carga con ${config.users} usuarios x ${config.repetitions} repeticiones...`));
     console.log(chalk.yellow(`📊 Total de peticiones a realizar: ${totalRequests}\n`));
 
-    // Función para actualizar el progreso
     function updateProgress() {
         const percentage = Math.round((completedRequests / totalRequests) * 100);
         const completed = '█'.repeat(Math.floor(percentage / 2));
@@ -95,7 +90,7 @@ async function simulateLoad(config) {
         process.stdout.write(`\r${chalk.cyan('Progreso:')} ${progressBar} ${percentage}% (${completedRequests}/${totalRequests}) ${chalk.green('✓')}`);
         
         if (completedRequests === totalRequests) {
-            console.log('\n'); // Nueva línea al completar
+            console.log('\n');
         }
     }
 
