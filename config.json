@@ -1,0 +1,6 @@
+{
+  "collectionPath": "./collection.json",
+  "users": 20,
+  "repetitions": 1,
+  "delayMsBetweenUsers": 50
+}

@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "7903bc89-1997-4608-93e4-5a904fadcf3a",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47011023",
+		"_collection_link": "https://docking-module-specialist-74779761-2077217.postman.co/workspace/Shaw-Games's-Workspace~89c8ba23-a8b6-4ec3-8343-776919a30c7d/collection/47011023-7903bc89-1997-4608-93e4-5a904fadcf3a?action=share&source=collection_link&creator=47011023"
+	},
+	"item": [
+		{
+			"name": "https://randomuser.me/api/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://randomuser.me/api/",
+					"protocol": "https",
+					"host": [
+						"randomuser",
+						"me"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

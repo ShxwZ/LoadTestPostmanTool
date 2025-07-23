@@ -1,0 +1,28 @@
+{
+  "name": "postman-loadtest",
+  "version": "1.0.0",
+  "description": "Script avanzado para test de carga basado en colecciones Postman",
+  "type": "module",
+  "main": "loadtest.js",
+  "scripts": {
+    "start": "node loadtest.js",
+    "prebuild": "node -e \"const fs=require('fs'); let code=fs.readFileSync('loadtest.js','utf8'); code=code.replace(/import (.+) from '(.+)';/g, 'const $1 = require(\\\"$2\\\");'); fs.writeFileSync('build-temp.js', code);\"",
+    "build": "npx @yao-pkg/pkg build-temp.js --targets node18-win-x64 --output dist/loadtest.exe",
+    "postbuild": "del build-temp.js",
+    "build-all": "npx @yao-pkg/pkg build-temp.js --targets node18-win-x64,node18-linux-x64,node18-macos-x64 --out-path dist"
+  },
+  "pkg": {
+    "assets": [
+      "collection.json"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.6.0"
+  }
+}
